@@ -7,7 +7,7 @@ async function run() {
     const octokit = github.getOctokit(GITHUB_TOKEN);
     const TENOR_TOKEN = core.getInput('TENOR_TOKEN');
 
-    const randomPos = ath.round(Math.random() * 100);;
+    const randomPos = Math.round(Math.random() * 100);;
     const url = `https://api.tenor.com/v1/search?q=thank%20you&pos=${randomPos}&limit=1&media_filter=minimal&contentfilter=high&key=${TENOR_TOKEN}`;
     const response = await fetch(url);
     const { results } = await response.json();
