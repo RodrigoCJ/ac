@@ -1,0 +1,23 @@
+{
+  "name": "ac",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "ncc build src/action.js -o dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RodrigoCJ/ac.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RodrigoCJ/ac/issues"
+  },
+  "homepage": "https://github.com/RodrigoCJ/ac#readme",
+  "devDependencies": {
+    "@vercel/ncc": "^0.33.1"
+  }
+}
