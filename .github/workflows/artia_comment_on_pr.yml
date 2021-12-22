@@ -1,0 +1,20 @@
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - main
+      - master
+      - development
+      - homologation
+  
+jobs:
+  artia_comment_job:
+    runs-on: ubuntu-latest
+    name: Comment Activity.
+    steps:
+      - name: Comentando Atividade
+        uses: solinftec/artia-new-comment-on-pull-request@main
+        with: 
+          organizationId: ${{ secrets.BOT_ARTIA_ORG_ID }}
+          creatorEmail: ${{ secrets.BOT_ARTIA_EMAIL }}
+          creatorPassword: ${{ secrets.BOT_ARTIA_PASSWORD }}
