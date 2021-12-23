@@ -18,7 +18,7 @@ async function run() {
         results = await response.json();
     }while(results['next'] === "0" );
 
-    const gifUrl = results['results'][0]['media'][0]['tinygif']['url'];e
+    const gifUrl = results['results'][0]['media'][0]['tinygif']['url'];
 
     const { context = {} } = github;
     const { pull_request } = context.payload;
