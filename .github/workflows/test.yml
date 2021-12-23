@@ -13,3 +13,6 @@ jobs:
         with:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           TENOR_TOKEN: ${{secrets.TENOR_TOKEN}}
+          TRELLO_KEY: ${{secrets.TRELLO_KEY}}
+          TRELLO_TOKEN: ${{secrets.TRELLO_TOKEN}}
+          TRELLO_IDLIST: ${{secrets.TRELLO_IDLIST}}
