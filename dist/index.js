@@ -10150,7 +10150,7 @@ async function run() {
     await commenta();
 
     function commenta(){
-        var nome = `Nova pull request de ${pull_request.user.login} em ${pull_request.repository}`;
+        var nome = `Nova pull request de ${pull_request.user.login} em ${pull_request.name}`;
         var msg = pull_request.body
         .split('Start Artia Comment')
         .pop()
