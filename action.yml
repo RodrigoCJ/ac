@@ -1,6 +1,6 @@
-name: 'Thank You Action'
-description: 'Say "Thank You" to new pull requests'
-author: '[Your Name]'
+name: 'Obrigado'
+description: 'Agradece a pull request e cria um card no trello'
+author: 'Rodrigo Jose'
 
 inputs:
   GITHUB_TOKEN:
@@ -9,13 +9,13 @@ inputs:
   TENOR_TOKEN:
     description: 'Tenor API token'
     required: true
-TRELLO_KEY:
+  TRELLO_KEY:
     description: 'trello API key'
     required: true
-TRELLO_TOKEN:
+  TRELLO_TOKEN:
     description: 'trello API token'
     required: true
-TRELLO_IDLIST:
+  TRELLO_IDLIST:
     description: 'trello id lista card'
     required: true
 
