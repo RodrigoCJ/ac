@@ -27,12 +27,8 @@ async function run() {
     await commenta();
 
     function commenta(){
-        var nome = `Nova pull request de ${pull_request.user.login} em ${pull_request.name}`;
-        var msg = pull_request.body
-        .split('Start Artia Comment')
-        .pop()
-        .split('End Artia Comment')[0]
-        .replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
+        var nome = `Nova pull request de ${pull_request.user.login} em ${pull_request.head.repo.full_name}`; 
+        var msg = pull_request.body.split('Start Artia Comment').pop().split('End Artia Comment')[0];
     
         octokit.rest.issues.createComment({
             ...context.repo,
@@ -46,5 +42,11 @@ async function run() {
     }
 }
 
-
 run();
+
+/*
+    A
+    Mudar o card de lista coforme o status do pull request (aberto, fechado, reaberto)
+    Melhorar as informacoes exibidas no card (colocar data e hora)
+    quando escrever anotacoes fora a inicial de agradecimento, atualizar o card tbm
+*/
