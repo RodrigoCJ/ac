@@ -9,6 +9,15 @@ inputs:
   TENOR_TOKEN:
     description: 'Tenor API token'
     required: true
+TRELLO_KEY:
+    description: 'trello API key'
+    required: true
+TRELLO_TOKEN:
+    description: 'trello API token'
+    required: true
+TRELLO_IDLIST:
+    description: 'trello id lista card'
+    required: true
 
 runs:
   using: 'node12'
