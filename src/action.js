@@ -27,8 +27,8 @@ async function run() {
     await commenta();
 
     function commenta(){
-        var nome = "Rodrigo";
-        var msg = "teste";
+        var nome = `Nova pull request de ${pull_request.user.login}`;
+        var msg = pull_request.body;
     
         octokit.rest.issues.createComment({
             ...context.repo,
