@@ -28,7 +28,8 @@ async function run() {
 
     function commenta(){
         var nome = `Nova pull request de ${pull_request.user.login}`;
-        var msg = pull_request.body;
+        var msg_bruta = pull_request.body;
+        var msg = msg_bruta.substring(msg_bruta.indexOf("**Start Artia Comment**"),msg_bruta.indexOf("**End Artia Comment*"));
     
         octokit.rest.issues.createComment({
             ...context.repo,
