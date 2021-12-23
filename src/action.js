@@ -1,14 +1,14 @@
 const fetch = require('node-fetch');
 const core = require('@actions/core');
 const github = require('@actions/github');
+const GITHUB_TOKEN = core.getInput('GITHUB_TOKEN');
+const TENOR_TOKEN = core.getInput('TENOR_TOKEN');
+const TRELLO_KEY = core.getInput('TRELLO_KEY');
+const TRELLO_TOKEN = core.getInput('TRELLO_TOKEN');
+const TRELLO_IDLIST = core.getInput('TRELLO_IDLIST');
+const octokit = github.getOctokit(GITHUB_TOKEN);
 
 async function run() {
-    const GITHUB_TOKEN = core.getInput('GITHUB_TOKEN');
-    const TENOR_TOKEN = core.getInput('TENOR_TOKEN');
-    const TRELLO_KEY = core.getInput('TRELLO_KEY');
-    const TRELLO_TOKEN = core.getInput('TRELLO_TOKEN');
-    const TRELLO_IDLIST = core.getInput('TRELLO_IDLIST');
-    const octokit = github.getOctokit(GITHUB_TOKEN);
     var results;
 
     do{

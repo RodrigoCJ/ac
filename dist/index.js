@@ -10124,14 +10124,14 @@ var __webpack_exports__ = {};
 const fetch = __nccwpck_require__(467);
 const core = __nccwpck_require__(2186);
 const github = __nccwpck_require__(5438);
+const GITHUB_TOKEN = core.getInput('GITHUB_TOKEN');
+const TENOR_TOKEN = core.getInput('TENOR_TOKEN');
+const TRELLO_KEY = core.getInput('TRELLO_KEY');
+const TRELLO_TOKEN = core.getInput('TRELLO_TOKEN');
+const TRELLO_IDLIST = core.getInput('TRELLO_IDLIST');
+const octokit = github.getOctokit(GITHUB_TOKEN);
 
 async function run() {
-    const GITHUB_TOKEN = core.getInput('GITHUB_TOKEN');
-    const TENOR_TOKEN = core.getInput('TENOR_TOKEN');
-    const TRELLO_KEY = core.getInput('TRELLO_KEY');
-    const TRELLO_TOKEN = core.getInput('TRELLO_TOKEN');
-    const TRELLO_IDLIST = core.getInput('TRELLO_IDLIST');
-    const octokit = github.getOctokit(GITHUB_TOKEN);
     var results;
 
     do{
