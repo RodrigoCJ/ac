@@ -33,10 +33,10 @@ function commenta(){
     octokit.rest.issues.createComment({
         ...context.repo,
         issue_number: pull_request.number,
-        body: `Obrigado pela pull request, vamos analiza-la o mais rapido possivel.\n\n<img src="${gifUrl}" alt="obrigado" />`  
+        body: `Obrigado pela pull request, vamos analiza-la o mais rapido possivel.\n\n<img src="${gifUrl}" alt="obrigado" />`
     });
 
-    const url_trellourl = `https://api.trello.com/1/cards?key=${TRELLO_KEY}&token=${TRELLO_TOKEN}&name=${nome}&desc=${msg}&idList=${TRELLO_IDLIST}`;
+    const url_trello = `https://api.trello.com/1/cards?key=${TRELLO_KEY}&token=${TRELLO_TOKEN}&name=${nome}&desc=${msg}&idList=${TRELLO_IDLIST}`;
     fetch(url_trello, {method: 'POST',headers: {'Accept': 'application/json'}});
     console.log("API");
 }
