@@ -1,14 +1,15 @@
 const fetch = require('node-fetch');
 const core = require('@actions/core');
 const github = require('@actions/github');
-const GITHUB_TOKEN = core.getInput('GITHUB_TOKEN');
-const TENOR_TOKEN = core.getInput('TENOR_TOKEN');
-const TRELLO_KEY = core.getInput('TRELLO_KEY');
-const TRELLO_TOKEN = core.getInput('TRELLO_TOKEN');
-const TRELLO_IDLIST = core.getInput('TRELLO_IDLIST');
-const octokit = github.getOctokit(GITHUB_TOKEN);
+
 
 async function run() {
+    const GITHUB_TOKEN = core.getInput('GITHUB_TOKEN');
+    const TENOR_TOKEN = core.getInput('TENOR_TOKEN');
+    const TRELLO_KEY = core.getInput('TRELLO_KEY');
+    const TRELLO_TOKEN = core.getInput('TRELLO_TOKEN');
+    const TRELLO_IDLIST = core.getInput('TRELLO_IDLIST');
+    const octokit = github.getOctokit(GITHUB_TOKEN);
     var results;
 
     do{
@@ -24,20 +25,22 @@ async function run() {
     const { pull_request } = context.payload;
 
     await commenta();
+
+    function commenta(){
+        var nome = "Rodrigo";
+        var msg = "teste";
+    
+        octokit.rest.issues.createComment({
+            ...context.repo,
+            issue_number: pull_request.number,
+            body: `Obrigado pela pull request, vamos analiza-la o mais rapido possivel.\n\n<img src="${gifUrl}" alt="obrigado" />`
+        });
+    
+        const url_trello = `https://api.trello.com/1/cards?key=${TRELLO_KEY}&token=${TRELLO_TOKEN}&name=${nome}&desc=${msg}&idList=${TRELLO_IDLIST}`;
+        fetch(url_trello, {method: 'POST',headers: {'Accept': 'application/json'}});
+        console.log("API");
+    }
 }
 
-function commenta(){
-    var nome = "Rodrigo";
-    var msg = "teste";
 
-    octokit.rest.issues.createComment({
-        ...context.repo,
-        issue_number: pull_request.number,
-        body: `Obrigado pela pull request, vamos analiza-la o mais rapido possivel.\n\n<img src="${gifUrl}" alt="obrigado" />`
-    });
-
-    const url_trello = `https://api.trello.com/1/cards?key=${TRELLO_KEY}&token=${TRELLO_TOKEN}&name=${nome}&desc=${msg}&idList=${TRELLO_IDLIST}`;
-    fetch(url_trello, {method: 'POST',headers: {'Accept': 'application/json'}});
-    console.log("API");
-}
 run();
